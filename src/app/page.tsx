@@ -1,103 +1,144 @@
-import Image from "next/image";
+/* FROM SHADCN */
 
-export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import {
+	Card,
+	CardAction,
+	CardContent,
+	CardDescription,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import { Badge } from "@/components/ui/badge";
+import {
+	AlertDialog,
+	AlertDialogAction,
+	AlertDialogCancel,
+	AlertDialogContent,
+	AlertDialogDescription,
+	AlertDialogFooter,
+	AlertDialogHeader,
+	AlertDialogTitle,
+	AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
+import {
+	Dialog,
+	DialogContent,
+	DialogDescription,
+	DialogHeader,
+	DialogTitle,
+	DialogTrigger,
+} from "@/components/ui/dialog";
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
-}
+/* FROM LUCID UI */
+import { SquarePlus } from "lucide-react";
+import { List } from "lucide-react";
+import { ListX } from "lucide-react";
+import { ListTodo } from "lucide-react";
+import { SquarePen } from "lucide-react";
+import { Trash2 } from "lucide-react";
+import { ListChecks } from "lucide-react";
+import { SquareSigma } from "lucide-react";
+
+const Home = () => {
+	return (
+		<main className="w-full h-screen bg-gray-200 flex justify-center items-center">
+			{/*  */}
+			<Card className="w-lg ">
+				<CardHeader className="flex gap-2">
+					<Input placeholder="Adicionar Tarefa"></Input>
+					<Button variant="default" className="cursor-pointer">
+						{" "}
+						<SquarePlus /> Cadastrar
+					</Button>
+				</CardHeader>
+
+				<CardContent>
+					<Separator className="mb-4" />
+					<div className="flex gap-2">
+						<Badge className="cursor-pointer" variant="default">
+							<List /> Todas
+						</Badge>
+						<Badge className="cursor-pointer" variant="outline">
+							{" "}
+							<ListX />
+							Não Finalizadas
+						</Badge>
+						<Badge className="cursor-pointer" variant="outline">
+							{" "}
+							<ListTodo /> Concluidas
+						</Badge>
+					</div>
+
+					<div className="mt-4 border-b">
+						<div className="h-14 flex justify-between items-center  border-t">
+							<div className="w-1 h-full bg-green-300"></div>
+							<p className="flex-1 px-2 text-sm">Estudar React e JS</p>
+							<div className="flex gap-2">
+								<Dialog>
+									<DialogTrigger asChild>
+										<SquarePen size={17} className="cursor-pointer" />
+									</DialogTrigger>
+									<DialogContent>
+										<DialogHeader>
+											<DialogTitle>Editar tarefa</DialogTitle>
+										</DialogHeader>
+										<div className="flex gap-2">
+											<Input placeholder="Editar tarefa" />
+											<Button className="cursor-pointer">Editar</Button>
+										</div>
+									</DialogContent>
+								</Dialog>
+								<Trash2 size={17} className="cursor-pointer" />
+							</div>
+						</div>
+					</div>
+
+					<div className="flex  justify-between mt-4">
+						<div className="flex items-center">
+							<ListChecks size={16} />
+							<p className="text-xs">Tarefas concluidas (3/3)</p>
+						</div>
+						<AlertDialog>
+							<AlertDialogTrigger asChild>
+								<Button
+									className="cursor-pointer text-xs h-7"
+									variant={"outline"}
+								>
+									<Trash2 size={17} className="cursor-pointer" />
+									Limpar tarefas concluidas
+								</Button>
+							</AlertDialogTrigger>
+							<AlertDialogContent>
+								<AlertDialogHeader>
+									<AlertDialogTitle>
+										Tem certeza que deseja excluir X itens
+									</AlertDialogTitle>
+								</AlertDialogHeader>
+								<AlertDialogFooter>
+									<AlertDialogAction>Sim</AlertDialogAction>
+									<AlertDialogCancel>Cancelar</AlertDialogCancel>
+								</AlertDialogFooter>
+							</AlertDialogContent>
+						</AlertDialog>
+					</div>
+
+					<div className="h-2 w-full bg-gray-100 mt-4 rounded-md">
+						<div
+							className="h-full  bg-blue-500 rounded-md"
+							style={{ width: "50%" }}
+						></div>
+					</div>
+					<div className="flex justify-end items-center mt-2 gap-2">
+						<SquareSigma size={17} />
+						<p className="text-xs">3 tarefas no total</p>
+					</div>
+				</CardContent>
+			</Card>
+		</main>
+	);
+};
+export default Home;
