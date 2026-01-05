@@ -39,6 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+# NIX OS
 shell.nix
 
 /src/generated/prisma
