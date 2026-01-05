@@ -14,13 +14,7 @@ import {
 	AlertDialogTitle,
 	AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import {
-	Dialog,
-	DialogContent,
-	DialogHeader,
-	DialogTitle,
-	DialogTrigger,
-} from "@/components/ui/dialog";
+import EditTask from "@/components/Edit-task";
 
 /* Imports from Lucid */
 import {
@@ -28,7 +22,6 @@ import {
 	List,
 	OctagonAlert,
 	BadgeCheck,
-	SquarePen,
 	Trash,
 	ListChecks,
 	SquareSigma,
@@ -70,20 +63,8 @@ const Home = () => {
 							<div className="w-1 h-full bg-green-300"></div>
 							<p className="flex-1 px-2 text-sm">Estudar React</p>
 							<div className="flex items-center gap-2">
-								<Dialog>
-									<DialogTrigger asChild>
-										<SquarePen size={16} className="cursor-pointer" />
-									</DialogTrigger>
-									<DialogContent>
-										<DialogHeader>
-											<DialogTitle>Editar Tarefa</DialogTitle>
-										</DialogHeader>
-										<div className="flex gap-2">
-											<Input placeholder="Editar tarefa"></Input>
-											<Button className="cursor-pointer">Editar</Button>
-										</div>
-									</DialogContent>
-								</Dialog>
+								<EditTask></EditTask>
+
 								<Trash size={16} className="cursor-pointer" />
 							</div>
 						</div>
@@ -95,6 +76,7 @@ const Home = () => {
 							<ListChecks size={16} />
 							<p className="text-xs">Tarefas concluídas (3/3)</p>
 						</div>
+
 						<AlertDialog>
 							<AlertDialogTrigger asChild>
 								<Button className="text-xs h-7 cursor-pointer" variant={"outline"}>
