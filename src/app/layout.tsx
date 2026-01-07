@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 // @ts-expect-error: side-effect CSS import without type declarations
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -25,13 +26,31 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en">
-			<body
-				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-				suppressHydrationWarning
-			>
-				<Toaster position="top-right" richColors />
-				{children}
+		<html lang="en" suppressHydrationWarning>
+			<body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+				<ThemeProvider
+					attribute="class"
+					defaultTheme="system"
+					themes={[
+						"light",
+						"dark",
+						"rose",
+						"roseDark",
+						"stone",
+						"stoneDark",
+						"violet",
+						"violetDark",
+						"yellow",
+						"yellowDark",
+						"green",
+						"greenDark",
+					]}
+					enableSystem
+					disableTransitionOnChange
+				>
+					<Toaster position="top-right" richColors />
+					{children}
+				</ThemeProvider>
 			</body>
 		</html>
 	);

@@ -45,7 +45,9 @@ const EditTask = ({ task, handleGetTasks }: TasksProps) => {
 	return (
 		<Dialog>
 			<DialogTrigger asChild>
-				<SquarePen size={16} className="cursor-pointer" />
+				<span title={"Editar tarefa?"}>
+					<SquarePen size={16} className="cursor-pointer" />
+				</span>
 			</DialogTrigger>
 			<DialogContent>
 				<DialogHeader>

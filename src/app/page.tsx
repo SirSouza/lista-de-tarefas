@@ -31,6 +31,7 @@ import { updateTaskStatus } from "@/actions/toggle-done";
 import Filter from "@/components/filter";
 import { FilterType } from "@/components/filter";
 import { deletedCompletedTasks } from "@/actions/clearCompletedTasks";
+import { ModeToggle } from "@/components/ModeToggle";
 
 const Home = () => {
 	const [taskList, setTaskList] = useState<Tasks[]>([]);
@@ -38,6 +39,11 @@ const Home = () => {
 	const [loading, setLoading] = useState<boolean>(false);
 	const [currentFilter, setCurrentFilter] = useState<FilterType>("all");
 	const [filteredTasks, setFilteredTasks] = useState<Tasks[]>([]);
+	const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+		if (e.key === "Enter") {
+			handleAddtask();
+		}
+	};
 
 	const handleGetTasks = async () => {
 		try {
@@ -76,7 +82,6 @@ const Home = () => {
 			if (!id) return;
 			const deletedTaks = await deleteTask(id);
 			if (!deletedTaks) return;
-			console.log(deletedTaks);
 			await handleGetTasks();
 			toast.warning("Tarefa deletada com sucesso");
 		} catch (error) {
@@ -145,6 +150,7 @@ const Home = () => {
 						placeholder="Adicionar tarefa"
 						onChange={(e) => setTask(e.target.value)}
 						value={task}
+						onKeyDown={handleKeyDown}
 					></Input>
 					<Button
 						variant="default"
@@ -189,12 +195,13 @@ const Home = () => {
 								</p>
 								<div className="flex items-center gap-2">
 									<EditTask task={task} handleGetTasks={handleGetTasks} />
-
-									<Trash
-										size={16}
-										className="cursor-pointer"
-										onClick={() => handleDeleteTask(task.id)}
-									/>
+									<span title="Deletar tarefa?">
+										<Trash
+											size={16}
+											className="cursor-pointer"
+											onClick={() => handleDeleteTask(task.id)}
+										/>
+									</span>
 								</div>
 							</div>
 						))}
@@ -247,10 +254,14 @@ const Home = () => {
 							}}
 						></div>
 					</div>
-
-					<div className="flex justify-end items-center mt-2 gap-2">
-						<SquareSigma size={16} />
-						<p className="text-xs">{taskList.length} tarefas no total</p>
+					<div className=" flex justify-between py-2 mt-2">
+						<div>
+							<ModeToggle></ModeToggle>
+						</div>
+						<div className="flex justify-end items-center mt-2 gap-2">
+							<SquareSigma size={16} />
+							<p className="text-xs">{taskList.length} tarefas no total</p>
+						</div>
 					</div>
 				</CardContent>
 			</Card>
