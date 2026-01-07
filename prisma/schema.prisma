@@ -1,5 +1,5 @@
 generator client {
-  provider = "prisma-client"
+  provider = "prisma-client-js"
   output   = "../src/generated/prisma"
 }
 
@@ -8,6 +8,8 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+
+/* Table */
 model Tasks {
   id   String  @id @default(cuid())
   task String
