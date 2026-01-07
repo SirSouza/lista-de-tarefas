@@ -38,7 +38,7 @@ Sistema completo de lista de tarefas (To-Do List) que permite criar, editar, del
 - **[shadcn/ui](https://ui.shadcn.com/)** - Componentes reutilizáveis
 - **[Lucide React](https://lucide.dev/)** - Ícones modernos
 - **[next-themes](https://github.com/pacocoursey/next-themes)** - Gerenciamento de temas
-- **[Sonner](https://sonner.emilkowal.ski/)** - Notificações toast
+
 
 ### Backend
 - **[Prisma ORM](https://www.prisma.io/)** - ORM type-safe para TypeScript
