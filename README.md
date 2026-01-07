@@ -1,4 +1,4 @@
-# Projeto de estudo Professor Odair Michael
+
 
 
 # 📋 Lista de Tarefas - Full Stack
@@ -9,7 +9,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=flat&logo=typescript)](https://www.typescriptlang.org/)
 [![Prisma](https://img.shields.io/badge/Prisma-6.9-2D3748?style=flat&logo=prisma)](https://www.prisma.io/)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-336791?style=flat&logo=postgresql)](https://www.postgresql.org/)
-
+### Projeto de estudo Professor Odair Michael
 ## 🎯 Sobre o Projeto
 
 Sistema completo de lista de tarefas (To-Do List) que permite criar, editar, deletar e marcar tarefas como concluídas. A aplicação conta com filtros inteligentes, indicadores visuais de progresso e suporte a temas claro/escuro.
@@ -277,10 +277,10 @@ const handleToggleTask = async (taskId: string) => {
 > **Nota**: Adicione prints do seu projeto aqui após o deploy!
 
 ### Light Mode
-![Light Mode](./screenshots/light-mode.png)
+![Light Mode](./screenshots/lightmode.png)
 
 ### Dark Mode
-![Dark Mode](./screenshots/dark-mode.png)
+![Dark Mode](./screenshots/darkmode.png)
 
 
 ---
