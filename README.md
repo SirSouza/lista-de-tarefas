@@ -284,3 +284,49 @@ const handleToggleTask = async (taskId: string) => {
 
 
 ---
+---
+
+## 🐧 Configuração para NixOS
+
+Se você usa NixOS, o projeto já vem com um `shell.nix` configurado!
+
+### Setup Rápido
+
+1. **Entre no ambiente Nix**
+```bash
+nix-shell
+```
+
+2. **Instale as dependências**
+```bash
+npm install
+```
+
+3. **Configure o `.env`**
+```env
+DATABASE_URL="postgresql://seu_usuario@localhost:5432/nome_do_banco?schema=public"
+```
+
+4. **Execute as migrations**
+```bash
+npx prisma migrate dev
+```
+
+5. **Inicie o servidor**
+```bash
+npm run dev
+```
+
+### O que o shell.nix configura?
+
+- Node.js 22
+- OpenSSL
+- Prisma Engines nativos para NixOS
+- Variáveis de ambiente necessárias para o Prisma funcionar
+
+> **Nota**: No NixOS, você precisa copiar manualmente o query engine após gerar o Prisma Client:
+> ```bash
+> cp ${PRISMA_QUERY_ENGINE_LIBRARY} src/generated/prisma/libquery_engine-linux-nixos.so.node
+> ```
+
+---
