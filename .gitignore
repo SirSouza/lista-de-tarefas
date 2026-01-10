@@ -40,6 +40,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 # NIX OS
-shell.nix
+# shell.nix
 
 /src/generated/prisma
